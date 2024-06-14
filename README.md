@@ -7,10 +7,11 @@ The repo runs on python and leverages available pytorch libraries.
 
 The share prices' day Low, High, Close, Open, Adjusted Close time series are encoded into 32x32 images using [pyts summation Gramian angular field (GAF)](https://pyts.readthedocs.io/en/stable/auto_examples/image/plot_single_gaf.html) to obtain a temporal correlation between each pair of prices in the series.
 Render of a GAF 32-day share price time series window for each feature:
-<img width="1405" alt="image" src="https://github.com/sergiosolorzano/CNN-bayesian-share-price-predictor/assets/24430655/b3d53312-df6c-43ee-9212-f776b26ad3aa">
+<img width="1045" alt="image" src="https://github.com/sergiosolorzano/CNN-bayesian-share-price-prediction/assets/24430655/985af796-f2d1-43c2-98e9-86e9610262dc">
+
 Render average of the above GAF images:
 
-<img width="225" alt="image" src="https://github.com/sergiosolorzano/CNN-bayesian-share-price-predictor/assets/24430655/0e3373bf-e5c6-4bb8-8796-7c5de0790e61">
+<img width="225" alt="image" src="https://github.com/sergiosolorzano/CNN-bayesian-share-price-prediction/assets/24430655/27cb4600-58c8-42ca-8968-d0a1b6d99586">
 
 We generate a stack of 32x32 images with shape (5, 491, 32, 32) which represents each of the 5 share price features' time series.
 Each image represents a time series window of 32 days. We slide each window by 1 day from Ti to T(i+32) hence obtaining 491 time series windows or GAF images for each feature.
