@@ -56,11 +56,11 @@ Bayesian optimization results helped to manually explore higher accuracy hyper-p
 
 Different model designs, in particular a Long short-term memory model (LTSM) may be more suited for this prediction task.
 
-Best Bayesian optimization test dataset performance achieves a score of 3.125% for:
+Best Bayesian optimization test dataset highest accuracy performance achieves a score of 3.125% for:
 
     'params': {'dropout_probab': 0.49443054445324736, 'learning_rate': 7.733490889418554e-05, 'momentum': 0.8560887984128811, 'output_conv_1': 71.57117313805955, 'output_conv_2': 8.825808052621136}
 
-This result helps us manually explore hyper-parameters and model parameter optimal results, achieving 17.91% accurancy:
+This result helps us manually explore hyper-parameters and model parameter optimal results, achieving 17.91% accurancy. The predicted-to-actual predict price difference to 2.dp is 95%. We acknowledge this may be an unnecessarily too high a threhold to determine this difference:
 
     'params': {'dropout_probab': 0, 'learning_rate': 0.0001, 'momentum': 0.9, 'output_conv_1': 40, 'output_conv_2': 12}
 
