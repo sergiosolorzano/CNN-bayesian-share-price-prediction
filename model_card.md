@@ -1,6 +1,6 @@
 # Model Card and Project Description
-We optimize the hyperparameters for a LeNet5-design based Convolutional Neural Network to predict the next-day share price.
-We test the model with the share price time series of the Sylicon Valley Bank for the period before and after bankruptcy.
+I optimize the hyperparameters for a LeNet5-design based Convolutional Neural Network to predict the next-day share price.
+I test the model with the share price time series of the Sylicon Valley Bank for the period before and after bankruptcy.
 
 ## Model Description
 A LeNet5-design based Convolutional Neural Network.
@@ -9,8 +9,8 @@ A LeNet5-design based Convolutional Neural Network.
 The share prices' day Low, High, Close, Open, Adjusted Close time series are encoded into 32x32 images using [pyts summation Gramian angular field (GAF)](https://pyts.readthedocs.io/en/stable/auto_examples/image/plot_single_gaf.html) to obtain a temporal correlation between each pair of prices in the series.
 Render of a GAF 32-day share price time series window for each feature.
 
-We generate a stack of 32x32 images with shape (5, 491, 32, 32) which represents each of the 5 share price features' time series.
-Each image represents a time series window of 32 days. We slide each window by 1 day from Ti to T(i+32) hence obtaining 491 time series windows or GAF images for each feature. These images are the inputs to the model.
+I generate a stack of 32x32 images with shape (5, 491, 32, 32) which represents each of the 5 share price features' time series.
+Each image represents a time series window of 32 days. I slide each window by 1 day from Ti to T(i+32) hence obtaining 491 time series windows or GAF images for each feature. These images are the inputs to the model.
 
 The image dataset is split 80/20 into training/testing datasets. The actual share price for each window is its the next day share price.
 The CNN is trained in mini-batches of 10 windows for each of the 5 features.
