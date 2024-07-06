@@ -60,9 +60,19 @@ Best Bayesian optimization test dataset highest accuracy performance achieves a 
 
     'params': {'dropout_probab': 0.49443054445324736, 'learning_rate': 7.733490889418554e-05, 'momentum': 0.8560887984128811, 'output_conv_1': 71.57117313805955, 'output_conv_2': 8.825808052621136}
 
-This result helps us manually explore hyper-parameters and model parameter optimal results, achieving 17.91% accurancy. The predicted-to-actual predict price difference to 2.dp is 95%. We acknowledge this may be an unnecessarily too high a threhold to determine this difference:
+Bayesian optimization results helps us to manually explore hyper-parameters and model parameter optimal results, achieving 17.91% accuracy as shown below:
+
+    accuracy = (correct price compared at 2 d.p / total) * 100
 
     'params': {'dropout_probab': 0, 'learning_rate': 0.0001, 'momentum': 0.9, 'output_conv_1': 40, 'output_conv_2': 12}
+
+The mean sum of predicted-to-actual predict price difference to 2.dp as a percentage of the actual price is 95%. This gives us a relative mesaure of the mean percentage difference. This metric provides lower explainability than the accuracy metric mentioned above. We also acknowledge 2 d.p. may be an unnecessarily too high a threhold to determine this difference:
+
+    batch_absolute_diff = torch.abs(predicted_rounded - actual_rounded)
+    batch_percentage_diff = (batch_absolute_diff / actual_rounded) * 100
+    #accumulate sum of diffs
+    sum_diff += torch.sum(batch_percentage_diff).item()
+    mean_percentage_diff = (abs(sum_diff) / total)
 
 ## ACKNOWLEDGEMENTS
 I thank [Yahoo Finance](https://pypi.org/project/yfinance/) for the time series data provided. I also thank for the inspiration [repo](https://github.com/ShubhamG2311/Financial-Time-Series-Forecasting). I also thank the [BayesianOptimization library s_opt module](https://github.com/bayesian-optimization/BayesianOptimization).
