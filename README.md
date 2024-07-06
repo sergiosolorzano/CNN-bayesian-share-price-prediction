@@ -43,20 +43,26 @@ The choice of model used leverages prior work and there is no other particular r
 ## HYPERPARAMETER OPTIMSATION
 The repo optimizes the model's hyperparameters leveraging [BayesianOptimization library s_opt module](https://github.com/bayesian-optimization/BayesianOptimization).
 
-We run 20 epochs and optimize the number of outputs for the Convolution Layer 1 and 2, learning rate and Dropout probability for 10 steps of bayesian optimization and steps of random exploration:
+We run up to 10,000 epochs and optimize the number of outputs for the Convolution Layer 1 and 2, learning rate and Dropout probability for 10 steps of bayesian optimization and steps of random exploration:
 
-    pbounds = {'output_conv_1': (40, 80), 'output_conv_2': (8, 16), 'learning_rate': (0.001, 0.01), 'dropout_probab': (0.0, 0.5)}
+    pbounds = {'output_conv_1': (40, 80), 'output_conv_2': (8, 16), 'learning_rate': (0.00001, 0.0001), 'dropout_probab': (0.0, 0.5), 'momentum': (0.8, 1.0)}
 
 This is only an initial choice in the search space.
 
 ## RESULTS
-The model can overfit possibly due to the highly correlated price series features used to train. 
+The model predicts at low accuracy. Literature indicates a LetNet design is not optimal to fit the data.
 
-Higher generalization for the model may be achieved with a more focus implementation of regularization techniques and reducing the number of share price time series features and including still related idiosynchratic features such as volume traded and enterprise value. A larger share in the time series for a less volatile period with a lower trending nature can also be more representative of the central region of the distribution.
+Bayesian optimization results helped to manually explore higher accuracy hyper-parameter and model parameters.
 
-Best Bayesian optimization test dataset performance achieves a score of 100% for:
+Different model designs, in particular a Long short-term memory model (LTSM) may be more suited for this prediction task.
 
-    'params': {'dropout_probab': 0.34325046384079183, 'learning_rate': 0.008511631047076357, 'output_conv_1': 40.73153109376767, 'output_conv_2': 14.00115451955974}}
+Best Bayesian optimization test dataset performance achieves a score of 3.125% for:
+
+    'params': {'dropout_probab': 0.49443054445324736, 'learning_rate': 7.733490889418554e-05, 'momentum': 0.8560887984128811, 'output_conv_1': 71.57117313805955, 'output_conv_2': 8.825808052621136}
+
+This result helps us manually explore hyper-parameters and model parameter optimal results, achieving 17.91% accurancy:
+
+    'params': {'dropout_probab': 0, 'learning_rate': 0.0001, 'momentum': 0.9, 'output_conv_1': 40, 'output_conv_2': 12}
 
 ## ACKNOWLEDGEMENTS
 I thank [Yahoo Finance](https://pypi.org/project/yfinance/) for the time series data provided. I also thank for the inspiration [repo](https://github.com/ShubhamG2311/Financial-Time-Series-Forecasting). I also thank the [BayesianOptimization library s_opt module](https://github.com/bayesian-optimization/BayesianOptimization).
