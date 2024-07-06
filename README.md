@@ -1,7 +1,7 @@
 ## Convolutional Neural Network with Bayesian hyperparameter optimization to predict next day share price from a stock price time series
 
 ## Description
-I optimize the hyperparameters for a LeNet5-design based Convolutional Neural Network to predict the next-day share price.
+I train and optimize the hyperparameters for a LeNet5-design based Convolutional Neural Network to predict the next-day share price.
 I test the model with the share price time series of the Sylicon Valley Bank for the period before and after bankruptcy.
 The repo runs on python and leverages available pytorch libraries.
 
