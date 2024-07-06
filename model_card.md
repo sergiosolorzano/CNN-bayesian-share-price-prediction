@@ -38,10 +38,14 @@ The score or performance of the model is measured for each
 
     accuracy = (correct price compared at 2 d.p / total) * 100
 
-Through bayesian optimization we can achieve score 100% indicating overfitting.
+Bayesian optimization results helped to manually explore higher accuracy hyper-parameter and model parameters.
 
 ## Limitations
 
-The training of the model with similar prices (open, close, etc) may overtrain the model. igher generalization for the model may be achieved with a more focus implementation of regularization techniques and reducing the number of share price time series features and including still related idiosynchratic features such as volume traded and enterprise value. A larger share in the time series for a less volatile period with a lower trending nature can also be more representative of the central region of the distribution.
+The model predicts at low accuracy. Literature indicates a LetNet design is not optimal to fit the data.
 
-Further experimientation with additional hyperparameters in bayesian optimization may help increasing the score whilst reducing the number of parameters.
+Bayesian optimization results helped to manually explore higher accuracy hyper-parameter and model parameters.
+
+Different model designs, in particular a Long short-term memory model (LTSM) may be more suited for this prediction task.
+
+Further experimientation with LTSM and hyperparameter bayesian optimization may help increasing the score whilst reducing the number of parameters. I will open a new branch for this purpose.
