@@ -50,7 +50,7 @@ I run up to 10,000 epochs and optimize the number of outputs for the Convolution
 This is only an initial choice in the search space.
 
 ## RESULTS
-The model predicts at low accuracy. Literature indicates a LetNet design is not optimal to fit the data.
+The model predicts at low accuracy. Literature indicates a LetNet design is not optimal to fit the data. Provided this results and the cost to run bayesian optimization it is not worth running further scenarios but explore alternatives.
 
 Bayesian optimization results helped to manually explore higher accuracy hyper-parameter and model parameters.
 
