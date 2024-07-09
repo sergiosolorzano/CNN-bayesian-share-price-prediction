@@ -50,7 +50,7 @@ I run up to 10,000 epochs and optimize the number of outputs for the Convolution
 This is only an initial choice in the search space.
 
 ## RESULTS
-The model predicts at low accuracy. Literature indicates a LetNet design is not optimal to fit the data. Provided this results and the cost to run bayesian optimization it is not worth running further scenarios but explore alternatives.
+The model predicts at low accuracy and fails to converge to near zero loss when backpropagating. Literature indicates a LetNet design is not optimal to fit the time series data as the model fails to capture temporal dependencies in time series data. Provided this results and the cost to run bayesian optimization it is not worth running further scenarios but explore alternatives.
 
 Bayesian optimization results helped to manually explore higher accuracy hyper-parameter and model parameters.
 
@@ -66,7 +66,7 @@ Bayesian optimization results helps us to manually explore hyper-parameters and 
 
     'params': {'dropout_probab': 0, 'learning_rate': 0.0001, 'momentum': 0.9, 'output_conv_1': 40, 'output_conv_2': 12}
 
-The mean sum of predicted-to-actual predict price difference to 2.dp as a percentage of the actual price is 95%. This gives us a relative mesaure of the mean percentage difference. This metric provides lower explainability than the accuracy metric mentioned above. I also acknowledge 2 d.p. may be an unnecessarily too high a threhold to determine this difference:
+The mean sum of predicted-to-actual predict price difference to 2.dp as a percentage of the actual price is 95%. This gives us a relative mesaure of the mean percentage difference. This metric provides lower explainability than the accuracy metric mentioned above. In particular there are significant outliers that bias the result and the analysis would benefit from removing these which I have not done. I also acknowledge 2 d.p. may be an unnecessarily too high a threhold to determine this difference:
 
     batch_absolute_diff = torch.abs(predicted_rounded - actual_rounded)
     batch_percentage_diff = (batch_absolute_diff / actual_rounded) * 100
