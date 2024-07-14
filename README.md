@@ -3,9 +3,9 @@
 ## Preface
 This is my end project for a [6-month Professional Certification at Imperial Business School on Machine Learning and Artificial Intelligence](https://execed-online.imperial.ac.uk/professional-certificate-ml-ai) that I completed in June 2024.
 
-I initially intended to focus on CNNs to predict the next-day share price of financial assets. Unfortunately, GADF-encoded images as inputs has resulted in low prediction accuracy. These results suggest the temporal correlation between each pair of prices in the series in the form of GADF-encoded inputs is not sufficiently robust to capture the temporal dependency of prices. This has led me to enhance this analysis in this repo which I will do in named git-branches.
+I initially intended to focus on CNNs to predict the next-day share price of financial assets. Unfortunately, GADF-encoded images as inputs has resulted in low prediction accuracy. These results suggest the temporal correlation between each pair of prices in the series in the form of GADF-encoded inputs is not sufficiently robust to capture the temporal structure of prices. This has led me to enhance this analysis in this repo which I will do in named git-branches.
 
-I have started by preparing a vanilla Recurrent Neural Network's (RNN), which I expect to be more powerful than fixed networks due to its sequencing approach and its design to influence outputs by the inputs fed in, in my case sequenced GADF-encoded images, and the history of inputs fed in the past. This may lead me to test Long-Short-Term-Memory RNNs that better capture the long and short term memory to provide greater temporal memory in the time series. Stay tunned !
+I have started by preparing a vanilla Recurrent Neural Network's (RNN), which I expect to be more powerful than fixed networks where the entire state of the network is lost after each data point is processed, something detrimental to the prediction power of the model where data points are related in time. By contrast, RNNs sequencing processing method and its design to influence outputs by the inputs fed in, in my case sequenced GADF-encoded images, and the history of inputs fed in the past which provides the ability to selectively embed information across sequence steps similar to an autoregressive approach, may capture these temporal relationships. This may lead me to test Long-Short-Term-Memory RNNs that better capture the long and short term memory to provide greater temporal memory in the time series. Stay tunned !
 
 ## Description
 I train and optimize the hyperparameters for a LeNet5-design based Convolutional Neural Network to predict the next-day share price.
@@ -82,4 +82,4 @@ The mean sum of predicted-to-actual predict price difference to 2.dp as a percen
     mean_percentage_diff = (abs(sum_diff) / total)
 
 ## ACKNOWLEDGEMENTS
-I thank [Yahoo Finance](https://pypi.org/project/yfinance/) for the time series data provided. I also thank for the inspiration [repo](https://github.com/ShubhamG2311/Financial-Time-Series-Forecasting). I also thank the [BayesianOptimization library s_opt module](https://github.com/bayesian-optimization/BayesianOptimization).
+I thank [Yahoo Finance](https://pypi.org/project/yfinance/) for the time series data provided. I also thank for the inspiration [repo](https://github.com/ShubhamG2311/Financial-Time-Series-Forecasting), the [BayesianOptimization library s_opt module](https://github.com/bayesian-optimization/BayesianOptimization), and the clarity on RNNs advantages found [in this research paper](https://arxiv.org/pdf/1506.00019).
