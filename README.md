@@ -1,5 +1,12 @@
 ## Convolutional Neural Network with Bayesian hyperparameter optimization to predict next day share price from a stock price time series
 
+## Preface
+This is my end project for a [6-month Professional Certification at Imperial Business School on Machine Learning and Artificial Intelligence](https://execed-online.imperial.ac.uk/professional-certificate-ml-ai) that I completed in June 2024.
+
+I initially intended to focus on CNNs to predict the next-day share price of financial assets. Unfortunately, GADF-encoded images as inputs has resulted in low prediction accuracy. These results suggest the temporal correlation between each pair of prices in the series in the form of GADF-encoded inputs is not sufficiently robust to capture the temporal dependency of prices. This has led me to enhance this analysis in this repo which I will do in named git-branches.
+
+I have started by preparing a Recurrent Neural Network's (RNN), which I expect to be more powerful than fixed networks due to its sequencing approach and the possibility to influence outputs by its inputs, in my case sequenced GADF-encoded images, but also the history of inputs. This may lead me to test Long-Short-Term-Memory RNNs that capture the long and short term memory to provide greater temporal memory in the time series. Stay tunned !
+
 ## Description
 I train and optimize the hyperparameters for a LeNet5-design based Convolutional Neural Network to predict the next-day share price.
 I test the model with the share price time series of the Sylicon Valley Bank for the period before and after bankruptcy.
