@@ -1,1 +1,1 @@
-this repo has moved to xx. and will be deleted.
+this repo has been [moved](https://github.com/sergiosolorzano/financial-asset-gap-risk-nn-prediction) and will be deleted.
